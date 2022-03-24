@@ -1,6 +1,4 @@
-from weakref import KeyedRef
 from flask import redirect, render_template, session, request, flash
-from virtualenv import session_via_cli
 from flask_app import app
 from flask_app.models import user, painting
 
