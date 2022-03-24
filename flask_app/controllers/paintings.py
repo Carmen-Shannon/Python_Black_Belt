@@ -1,5 +1,6 @@
 from weakref import KeyedRef
 from flask import redirect, render_template, session, request, flash
+from virtualenv import session_via_cli
 from flask_app import app
 from flask_app.models import user, painting
 
@@ -109,6 +110,11 @@ def delete_painting(id):
         redirect('/')
 
     data = {'id': id}
+
+    current_painting = painting.Painting.get_painting_by_id(data)
+    if current_painting.created_by != session['current_id']:
+        return redirect('/dashboard')
+
     painting.Painting.delete_painting(data)
     return redirect('/dashboard')
 
