@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <title>Login/Register</title>
+</head>
+<body>
+    <div class="leftcontainer">
+        <h2>Registration</h2>
+        {% with reg_errors = get_flashed_messages(category_filter=['reg']) %}
+            {% if reg_errors %}
+                {% for message in reg_errors %}
+                    <p>{{ message }}</p>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+        <form action="/register" method="post">
+            <div class="innerform">
+                <label for="first_name">First Name:</label>
+                <input type="text" name="first_name" class="input_text">
+            </div>
+            <div class="innerform">
+                <label for="last_name">Last Name:</label>
+                <input type="text" name="last_name" class="input_text">
+            </div>
+            <div class="innerform">
+                <label for="email_register">Email:</label>
+                <input type="text" name="email_register" class="input_text">
+            </div>
+            <div class="innerform">
+                <label for="password_register">Password:</label>
+                <input type="password" name="password_register" class="input_text">
+            </div>
+            <div class="innerform">
+                <label for="confirm_password">Confirm Password:</label>
+                <input type="password" name="confirm_password" class="input_text">
+            </div>
+            <input type="submit" value="Register" class="submit">
+        </form>
+    </div>
+    <div class="rightcontainer">
+        <h2>Login</h2>
+        {% with login_errors = get_flashed_messages(category_filter=['login']) %}
+            {% if login_errors %}
+                {% for message in login_errors %}
+                    <p>{{ message }}</p>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+        <form action="/login" method="post">
+            <div class="innerform">
+                <label for="email_login">Email:</label>
+                <input type="text" name="email_login" class="input_text">
+            </div>
+            <div class="innerform">
+                <label for="password_login">Password:</label>
+                <input type="password" name="password_login" class="input_text">
+            </div>
+            <input type="submit" value="Log In" class="submit">
+        </form>
+    </div>
+</body>
+</html>

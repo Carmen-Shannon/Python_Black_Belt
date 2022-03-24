@@ -1,0 +1,176 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+}
+
+@keyframes buttonhover_nav {
+    from {background-color: rgb(43, 124, 32);}
+    to {background-color: black;}
+}
+
+@keyframes buttonhover_logout {
+    from {background-color: brown;}
+    to {background-color: black;}
+}
+
+body {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    background-color: darkgrey;
+}
+
+.leftcontainer, .rightcontainer, .container {
+    background-color: rgb(42, 56, 56);
+    padding: 20px 60px;
+    margin-top: 60px;
+    border-radius: 10px;
+}
+
+.innerform {
+    display: flex;
+    flex-direction: column;
+    padding: 5px 0px;
+}
+
+p {
+    color:rgb(206, 34, 34);
+}
+
+h2 {
+    color: bisque;
+    padding-bottom: 10px;
+    border-bottom: 3px solid black;
+    text-align: center;
+}
+
+label, h4 {
+    color:goldenrod
+}
+
+.submit:hover {
+    animation-name: buttonhover_nav;
+    animation-duration: 1s;
+    animation-fill-mode: both;
+}
+
+.submit {
+    font-size: 18px;
+    background-color: rgb(43, 124, 32);
+    color: white;
+    padding: 8px;
+    border-radius: 10px;
+    margin-top: 10px;
+    border: 2px solid black;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.input_text, .big_text {
+    border-radius: 10px;
+    font-size: 14px;
+    padding: 8px;
+}
+
+.header {
+    position: absolute;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    top: 0;
+    background-color: rgb(42, 56, 56);
+    padding: 8px 0px;
+}
+
+.header h2 {
+    border-bottom: none;
+    margin-left: 15px;
+    padding-bottom: none;
+}
+
+.innerheader {
+    display: flex;
+    color: white;
+    align-items: center;
+    justify-content: center;
+}
+
+.innerheader * {
+    margin: 0px 5px;
+}
+
+.header h3 {
+    margin: 0px 5px;
+    color: bisque;
+}
+
+select {
+    font-size: 16px;
+    border-radius: 10px;
+    padding: 4px;
+    margin-bottom: 4px;
+}
+
+textarea {
+    border-radius: 7px;
+    padding: 4px;
+}
+
+.logout:hover {
+    animation-name: buttonhover_logout;
+    animation-duration: 1s;
+    animation-fill-mode: both;
+}
+
+.logout {
+    background-color: brown;
+    color: white;
+    padding: 8px;
+    border-radius: 10px;
+    border: 2px solid black;
+    font-size: 18px;
+}
+
+.navigate {
+    background-color: rgb(43, 124, 32);
+    color: white;
+    padding: 8px;
+    font-size: 14px;
+    border-radius: 10px;
+}
+
+.innercontainer {
+    display: flex;
+    justify-content: flex-start;
+}
+
+.innercontainer h5 {
+    color: goldenrod
+}
+
+li, a {
+    text-decoration: none;
+    list-style: none;
+}
+
+li a {
+    color: rgb(71, 71, 226);
+}
+
+.big_text {
+    width: auto;
+    word-wrap: normal;
+}
+
+h4 {
+    padding-bottom: 10px;
+    border-bottom: 3px solid black;
+    margin-bottom: 5px;
+}

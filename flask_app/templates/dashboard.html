@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <title>Dashboard</title>
+</head>
+<body>
+    <div class="header">
+        <h2>Welcome {{ user['first_name'] }}!</h2>
+        <div class="innerheader">
+            <a href="/add_painting_page"><button class="submit">Add Painting</button></a>
+            <a href="/logout"><button class="logout">Logout</button></a>
+        </div>
+    </div>
+    <div class="leftcontainer">
+        <h4>All Paintings</h4>
+        {% if paintings %}
+            <ul>
+                {% for painting in paintings %}
+                <li>
+                    <a href="/view_painting/{{ painting.id }}">{{ painting['title'] }}</a>
+                    by {{ painting.author.first_name }} {{ painting.author.last_name }}
+                    {% if user['id'] == painting['created_by'] %}
+                        <a href="/delete_painting/{{ painting['id'] }}">delete</a>
+                        |
+                        <a href="/edit_painting_page/{{ painting['id'] }}">edit</a>
+                    {% endif %}
+                </li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+    </div>
+    <div class="rightcontainer">
+        <h4>Your Purchased Paintings</h4>
+        {% if owned_paintings %}
+            <ul>
+                {% for painting in owned_paintings %}
+                    <li>
+                        <a href="/view_painting/{{ painting['id'] }}">{{ painting['title'] }}</a>
+                        by {{ painting['author']['first_name'] }} {{ painting['author']['last_name'] }}
+                    </li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+    </div>
+</body>
+</html>

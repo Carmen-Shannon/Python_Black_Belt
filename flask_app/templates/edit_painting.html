@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <title>Add Painting</title>
+</head>
+<body>
+    <div class="header">
+        <h2>Welcome {{ user['first_name'] }}!</h2>
+        <div class="innerheader">
+            <a href="/dashboard"><button class="submit">Dashboard</button></a>
+            <a href="/logout"><button class="logout">Logout</button></a>
+        </div>
+    </div>
+    <div class="container">
+        <h4>Add a Painting</h4>
+        {% with errors = get_flashed_messages(category_filter=['add_painting']) %}
+            {% if errors %}
+                {% for msg in errors %}
+                    <p>{{ msg }}</p>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+        <form action="/edit_painting/{{ painting['id'] }}" method="post">
+            <div class="innerform">
+                <label for="title">Title:</label>
+                <input type="text" name="title" class="input_text" value="{{ painting['title'] }}">
+            </div>
+            <div class="innerform">
+                <label for="description">Description</label>
+                <textarea name="description" class="input_text" cols="22" rows="4">{{ painting['description'] }}</textarea>
+            </div>
+            <div class="innerform">
+                <label for="price">Price:</label>
+                <input type="number" name="price" class="input_text" value="{{ painting_price }}">
+            </div>
+            <div class="innerform">
+                <label for="quantity">Quantity:</label>
+                <input type="number" name="quantity" class="input_text" value="{{ painting_quantity }}">
+            </div>
+            <input type="submit" value="Update" class="submit">
+        </form>
+    </div>
+</body>
+</html>
